@@ -1,0 +1,565 @@
+type CA {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type CA1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type CHOCDF {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type CHOCDF1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type CHOLE {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type CHOLE1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type DigestEntry {
+  daily: Float
+  hasRDI: Boolean
+  label: String
+  schemaOrgTag: String
+  sub: [SubEntry]
+  tag: String
+  total: Float
+  unit: String
+}
+
+type ENERCKCAL {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type ENERCKCAL1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FAMS {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FAPU {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FASAT {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FASAT1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FAT {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FAT1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FATRN {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FE {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FE1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FIBTG {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FIBTG1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FOLAC {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FOLDFE {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FOLDFE1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type FOLFD {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type HitsEntry {
+  _links: Links1
+  recipe: Recipe
+}
+
+type Images {
+  LARGE: LARGE
+  REGULAR: REGULAR
+  SMALL: SMALL
+  THUMBNAIL: THUMBNAIL
+}
+
+type IngredientsEntry {
+  food: String
+  foodCategory: String
+  foodId: String
+  image: String
+  measure: String
+  quantity: Float
+  text: String
+  weight: Float
+}
+
+type K {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type K1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type LARGE {
+  height: Int
+  url: String
+  width: Int
+}
+
+type Links {
+  next: Next
+}
+
+type Links1 {
+  self: Self
+}
+
+type MG {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type MG1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type NA {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type NA1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type NIA {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type NIA1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type Next {
+  href: String
+  title: String
+}
+
+type P {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type P1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type PROCNT {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type PROCNT1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type REGULAR {
+  height: Int
+  url: String
+  width: Int
+}
+
+type RIBF {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type RIBF1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type Recipe {
+  calories: Float
+  cautions: [String]
+  co2EmissionsClass: String
+  cuisineType: [String]
+  dietLabels: [String]
+  digest: [DigestEntry]
+  dishType: [String]
+  healthLabels: [String]
+  image: String
+  images: Images
+  ingredientLines: [String]
+  ingredients: [IngredientsEntry]
+  label: String
+  mealType: [String]
+  shareAs: String
+  source: String
+  tags: [String]
+  totalCO2Emissions: Float
+  totalDaily: TotalDaily
+  totalNutrients: TotalNutrients
+  totalTime: Int
+  totalWeight: Float
+  uri: String
+  url: String
+  yield: Int
+}
+
+type Results {
+  _links: Links
+  count: Int
+  from: Int
+  hits: [HitsEntry]
+  to: Int
+}
+
+type Root {
+  _links: Links
+  recipe: Recipe
+}
+
+type SMALL {
+  height: Int
+  url: String
+  width: Int
+}
+
+type SUGAR {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type Self {
+  href: String
+  title: String
+}
+
+type SubEntry {
+  daily: Float
+  hasRDI: Boolean
+  label: String
+  schemaOrgTag: String
+  tag: String
+  total: Float
+  unit: String
+}
+
+type THIA {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type THIA1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type THUMBNAIL {
+  height: Int
+  url: String
+  width: Int
+}
+
+type TOCPHA {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type TOCPHA1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type TotalDaily {
+  CA: CA1
+  CHOCDF: CHOCDF1
+  CHOLE: CHOLE1
+  ENERC_KCAL: ENERCKCAL1
+  FASAT: FASAT1
+  FAT: FAT1
+  FE: FE1
+  FIBTG: FIBTG1
+  FOLDFE: FOLDFE1
+  K: K1
+  MG: MG1
+  NA: NA1
+  NIA: NIA1
+  P: P1
+  PROCNT: PROCNT1
+  RIBF: RIBF1
+  THIA: THIA1
+  TOCPHA: TOCPHA1
+  VITA_RAE: VITARAE1
+  VITB12: VITB121
+  VITB6A: VITB6A1
+  VITC: VITC1
+  VITD: VITD1
+  VITK1: VITK11
+  ZN: ZN1
+}
+
+"""
+Some fields ["CHOCDF.net", "SUGAR.added"] are not valid GraphQL identifiers and were omitted since the "OmitFields" parameter was used
+"""
+type TotalNutrients {
+  CA: CA
+  CHOCDF: CHOCDF
+  CHOLE: CHOLE
+  ENERC_KCAL: ENERCKCAL
+  FAMS: FAMS
+  FAPU: FAPU
+  FASAT: FASAT
+  FAT: FAT
+  FATRN: FATRN
+  FE: FE
+  FIBTG: FIBTG
+  FOLAC: FOLAC
+  FOLDFE: FOLDFE
+  FOLFD: FOLFD
+  K: K
+  MG: MG
+  NA: NA
+  NIA: NIA
+  P: P
+  PROCNT: PROCNT
+  RIBF: RIBF
+  SUGAR: SUGAR
+  THIA: THIA
+  TOCPHA: TOCPHA
+  VITA_RAE: VITARAE
+  VITB12: VITB12
+  VITB6A: VITB6A
+  VITC: VITC
+  VITD: VITD
+  VITK1: VITK1
+  WATER: WATER
+  ZN: ZN
+}
+
+type VITARAE {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITARAE1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITB12 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITB121 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITB6A {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITB6A1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITC {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITC1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITD {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITD1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITK1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type VITK11 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type WATER {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type ZN {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type ZN1 {
+  label: String
+  quantity: Float
+  unit: String
+}
+
+type Query {
+  results(
+    q: String
+    diet: [String]
+    health: [String]
+    cuisineType: [String]
+    mealType: [String]
+    dishType: [String]
+    calories: String
+    excluded: [String]
+    random: Boolean
+  ): Results
+    @rest(
+      endpoint: "https://api.edamam.com/api/recipes/v2?type=$type&app_id=$app_id&app_key=$app_key"
+      headers: [
+        { name: "accept", value: "application/json" }
+        { name: "accept-language", value: "en" }
+      ]
+      configuration: "edamam"
+    )
+  details(id: String): Root
+    @rest(
+      endpoint: "https://api.edamam.com/api/recipes/v2/$id?type=$type&app_id=$app_id&app_key=$app_key"
+      headers: [
+        { name: "accept", value: "application/json" }
+        { name: "accept-language", value: "en" }
+      ]
+      configuration: "edamam"
+    )
+}
