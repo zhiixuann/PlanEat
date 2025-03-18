@@ -1,0 +1,9 @@
+configurationset:
+  - configuration:
+      name: postgresql_config
+      uri: postgresql://aws-0-ap-southeast-1.pooler.supabase.com/postgres?user=postgres.xbxvrwkcjyakeviomxej&password=8UC%7E%7EWeQF%40c%26q4B
+  - configuration:
+      name: edamam
+      app_id: fd685000
+      app_key: 3b8b263cb280df4253794f76c4b9220e
+      type: public

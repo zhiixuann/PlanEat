@@ -1,0 +1,283 @@
+type Admin {
+  created_at: DateTime!
+  id: ID!
+  username: String
+}
+
+type Favourite_meal {
+  calories: Int
+  id: Int!
+  user_id: ID!
+  label: String!
+  recipeId: String!
+
+  result: Root
+    @materializer(
+      query: "details"
+      arguments: [{ name: "id", field: "recipeId" }]
+    )
+}
+
+type Meal_plan {
+  calories: Int
+  id: Int!
+  user_id: ID!
+  label: String
+  recipeId: String!
+  date: Date!
+  meal_type: String
+
+  result: Root
+    @materializer(
+      query: "details"
+      arguments: [{ name: "id", field: "recipeId" }]
+    )
+}
+
+type Profiles {
+  avatar_url: String
+  full_name: String
+  group: String!
+  id: ID!
+  updated_at: DateTime
+  username: String
+  website: String
+}
+
+"""
+The following queries are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Query {
+  " Queries for type 'Admin' "
+  adminList: [Admin]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "admin"
+      configuration: "postgresql_config"
+    )
+  adminPaginatedList(first: Int, after: Int): [Admin]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: """
+      SELECT "created_at", "id", "username" FROM "admin" LIMIT $1 OFFSET $2
+      """
+      configuration: "postgresql_config"
+    )
+  " Queries for type 'Favourite_meal' "
+  favourite_mealList: [Favourite_meal]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "favourite_meal"
+      configuration: "postgresql_config"
+    )
+  favourite_meals(user_id: ID!): [Favourite_meal]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: "SELECT * FROM favourite_meal WHERE user_id = $1"
+      table: "favourite_meal"
+      configuration: "postgresql_config"
+    )
+  favourite_mealsByRecipeIdAndUserId(
+    user_id: ID!
+    recipeId: String!
+  ): [Favourite_meal]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "favourite_meal"
+      configuration: "postgresql_config"
+    )
+  favourite_mealPaginatedList(first: Int, after: Int): [Favourite_meal]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: """
+      SELECT "calories", "id", "label", "meal_id", "user_id" FROM "favourite_meal" LIMIT $1 OFFSET $2
+      """
+      configuration: "postgresql_config"
+    )
+  " Queries for type 'Meal_plan' "
+  meal_plansByUserId(user_id: ID!): [Meal_plan]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      configuration: "postgresql_config"
+    )
+  meal_plansByUserIdandDate(user_id: ID!, date: Date!): [Meal_plan]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      query: "SELECT * FROM meal_plan WHERE user_id = $1 AND date = $2;"
+      configuration: "postgresql_config"
+    )
+  meal_plansByUserIdandDateandMealType(
+    user_id: ID!
+    date: Date!
+    meal_type: String!
+  ): [Meal_plan]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      configuration: "postgresql_config"
+    )
+  meal_plansByRecipeIdAndUserId(user_id: ID!, recipeId: String!): [Meal_plan]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      configuration: "postgresql_config"
+    )
+  " Queries for type 'Profiles' "
+  profilesById(id: ID!): [Profiles]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "profiles"
+      configuration: "postgresql_config"
+    )
+  profilesByIdAndWebsite(id: ID!, website: String!): [Profiles]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "profiles"
+      configuration: "postgresql_config"
+    )
+  profilesList: [Profiles]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "profiles"
+      configuration: "postgresql_config"
+    )
+  profilesPaginatedList(first: Int, after: Int): [Profiles]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      query: """
+      SELECT "avatar_url", "full_name", "group", "id", "updated_at", "username", "website" FROM "profiles" LIMIT $1 OFFSET $2
+      """
+      configuration: "postgresql_config"
+    )
+}
+
+"""
+The following mutations are just a set of examples of how to access your schema.
+Feel free to modify them or aggregate more.
+"""
+type Mutation {
+  " Mutations for type 'Admin' "
+  deleteAdmin(username: String!, created_at: DateTime!, id: ID!): Admin
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "admin"
+      dml: DELETE
+      configuration: "postgresql_config"
+    )
+  insertAdmin(username: String, created_at: DateTime!): Admin
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "admin"
+      dml: INSERT
+      configuration: "postgresql_config"
+    )
+  " Mutations for type 'Favourite_meal' "
+  deleteFavourite_meal(
+    label: String!
+    user_id: ID!
+    calories: Int!
+    recipeId: String!
+  ): Favourite_meal
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "favourite_meal"
+      dml: DELETE
+      configuration: "postgresql_config"
+    )
+  insertFavourite_meal(
+    label: String!
+    user_id: ID!
+    calories: Int!
+    recipeId: String!
+  ): Favourite_meal
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "favourite_meal"
+      dml: INSERT
+      configuration: "postgresql_config"
+    )
+  " Mutations for type 'Meal_plan' "
+  deleteMeal_plan(
+    label: String!
+    user_id: ID!
+    calories: Int!
+    recipeId: String!
+    date: Date!
+  ): Meal_plan
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      dml: DELETE
+      configuration: "postgresql_config"
+    )
+  insertMeal_plan(
+    label: String!
+    user_id: ID!
+    calories: Int!
+    recipeId: String!
+    date: Date!
+    meal_type: String!
+  ): Meal_plan
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "meal_plan"
+      dml: INSERT
+      configuration: "postgresql_config"
+    )
+  " Mutations for type 'Profiles' "
+  deleteProfiles(
+    website: String!
+    id: ID!
+    updated_at: DateTime!
+    username: String!
+    full_name: String!
+    group: String!
+    avatar_url: String!
+  ): Profiles
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "profiles"
+      dml: DELETE
+      configuration: "postgresql_config"
+    )
+  insertProfiles(
+    website: String
+    id: ID!
+    updated_at: DateTime
+    username: String
+    full_name: String
+    group: String!
+    avatar_url: String
+  ): Profiles
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "profiles"
+      dml: INSERT
+      configuration: "postgresql_config"
+    )
+}
